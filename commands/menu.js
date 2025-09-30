@@ -8,12 +8,12 @@ const Database = require('better-sqlite3');
 const { isOwnerMsg } = require('../lib/owner');
 
 // ====== KONFIG (ganti sesuai brandmu) ======
-const BRAND_NAME   = 'ROBOT VPN';
-const STORE_NAME   = 'KLMPK-STORE';
-const CONTACT_ADM  = '@Andyyuda'; // ganti sesuai handle admin
+const BRAND_NAME   = 'JULAK VPN';
+const STORE_NAME   = 'PAPADAAN-STORE';
+const CONTACT_ADM  = '@rajaganjil93'; // ganti sesuai handle admin
 
 // ====== DB helpers (wallet.db) ======
-const DB_PATH = path.resolve(process.cwd(), 'andy', 'wallet.db');
+const DB_PATH = path.resolve(process.cwd(), 'julak', 'wallet.db');
 function openDB() {
   try {
     fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
@@ -145,7 +145,7 @@ function checkPort(host, port = 22, timeout = 2000) {
   });
 }
 function loadVpsList() {
-  const vpsPath = path.resolve(process.cwd(), 'andy', 'vps.json');
+  const vpsPath = path.resolve(process.cwd(), 'julak', 'vps.json');
   if (!fs.existsSync(vpsPath)) return [];
   try {
     const list = JSON.parse(fs.readFileSync(vpsPath, 'utf-8'));
@@ -219,9 +219,7 @@ async function buildHeaderText(msg) {
 
   return [
 '━━━━━━━━━━━━━━━━━━━━━━━━',
-`≡                    ${BRAND_NAME}                      ≡`,
-'━━━━━━━━━━━━━━━━━━━━━━━━',
-`Selamat datang di ${STORE_NAME} 🚀`,
+`Selamat datang di ${BRAND_NAME} 🚀`,
 'Bot otomatis untuk membeli Akun VPN dengan mudah dan cepat.',
 '━━━━━━━━━━━━━━━━━━━━━━━━',
 `💲 » Saldo: Rp.${idr(saldo)}`,
