@@ -20,7 +20,7 @@ function getConfig() {
   };
 }
 
-const DB_PATH = path.resolve(process.cwd(), 'andy', 'wallet.db');
+const DB_PATH = path.resolve(process.cwd(), 'julak', 'wallet.db');
 
 // ====== DB & statements ======
 function openDB() {
