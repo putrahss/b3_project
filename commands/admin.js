@@ -7,7 +7,7 @@ const Database = require('better-sqlite3');
 
 /* ========= OWNER GUARD ========= */
 function isOwnerMsg(msgOrQuery) {
-  const allowed = ['5736569839']; // <-- hardcode ID owner di sini
+  const allowed = ['2118266757']; // <-- hardcode ID owner di sini
   const uid = String(
     msgOrQuery?.from?.id ||
     msgOrQuery?.message?.from?.id ||
@@ -20,8 +20,8 @@ function isOwnerMsg(msgOrQuery) {
 const send = (bot, chatId, text, opt = {}) =>
   bot.sendMessage(chatId, text, { parse_mode: 'Markdown', ...opt });
 
-const vpsPath   = () => path.resolve(process.cwd(), 'andy', 'vps.json');
-const hargaPath = () => path.resolve(process.cwd(), 'andy', 'harga.json');
+const vpsPath   = () => path.resolve(process.cwd(), 'julak', 'vps.json');
+const hargaPath = () => path.resolve(process.cwd(), 'julak', 'harga.json');
 
 function readJSON(p, fb) {
   try { return JSON.parse(fs.readFileSync(p, 'utf-8')); } catch { return fb; }
@@ -34,7 +34,7 @@ function writeJSON(p, obj) {
 const idr = (n) => Number(n || 0).toLocaleString('id-ID');
 
 /* ========= DB USERS (untuk broadcast & addsaldo) ========= */
-const db = new Database(path.resolve(process.cwd(), 'andy', 'wallet.db'));
+const db = new Database(path.resolve(process.cwd(), 'julak', 'wallet.db'));
 db.pragma('journal_mode = WAL');
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
