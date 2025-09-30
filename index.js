@@ -17,7 +17,7 @@ global.qrisConfig = {
 };
 
 // ===== Token: .env atau hardcode fallback =====
-const HARDCODED_TOKEN = '6367951330:AAEsYaDktE-lztbYQCmzb6vTg9N4b1Ma10g';
+const HARDCODED_TOKEN = '8227793826:AAHNQ9uQU9QOJZHnQ-by1gMJdD5RadE1lOs';
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN || HARDCODED_TOKEN;
 if (!TOKEN || TOKEN === 'PUT_YOUR_BOT_TOKEN_HERE') {
   console.error('❌ Token tidak tersedia. Set .env TELEGRAM_BOT_TOKEN=... ATAU isi HARDCODED_TOKEN.');
@@ -28,7 +28,7 @@ if (!TOKEN || TOKEN === 'PUT_YOUR_BOT_TOKEN_HERE') {
 const { parseOwnerIds, isOwnerMsg } = require('./lib/owner');
 
 // ====== SQLITE: wallet.db (auto-register user) ======
-const DB_PATH = path.resolve(process.cwd(), 'andy', 'wallet.db');
+const DB_PATH = path.resolve(process.cwd(), 'julak', 'wallet.db');
 fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
 const db = new Database(DB_PATH);
 db.pragma('journal_mode = WAL');
@@ -172,7 +172,7 @@ bot.onText(/^\/start$/i, async (msg) => {
   ensureUser(msg); // auto-register juga saat /start
   const first = [msg.from.first_name, msg.from.last_name].filter(Boolean).join(' ')
               || msg.from.username || 'teman';
-  await bot.sendMessage(msg.chat.id, `Halo ${first}! 👋\nKetik /menu atau .menu untuk fitur.`);
+  await bot.sendMessage(msg.chat.id, `Hallo ${first}! 👋\nKetik /menu atau .menu untuk menampilkan menu utama.`);
 });
 
 bot.onText(/^\/help$/i, async (msg) => {
