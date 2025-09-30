@@ -1,7 +1,7 @@
 // commands/ceksaldo_tg.js
 const path = require('path');
 const Database = require('better-sqlite3');
-const DB_PATH = path.resolve(process.cwd(), 'andy', 'wallet.db');
+const DB_PATH = path.resolve(process.cwd(), 'julak', 'wallet.db');
 const db = new Database(DB_PATH);
 const idr = n => Number(n||0).toLocaleString('id-ID');
 
